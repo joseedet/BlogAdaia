@@ -1,0 +1,59 @@
+﻿@model IndexViewModel
+
+
+@{
+
+    ViewBag.Title = "Blog Website";
+    ViewBag.Description = "Este blog trata sobre programacion viajes y marihuana";
+    ViewBag.keywords = "blog programming marihuana";
+}
+@*
+<h2>Home Page!</h2>
+<img src="~/content/static/IMG_20180127_174540.jpg" width="500" />
+
+*@
+<div class="main-image">
+
+    <span class="title">Amazing Blog Site</span>
+</div>
+<div class="container">
+
+    @* <ul>
+            @foreach (var post in Model)
+
+            {
+                <li>
+
+                    <a asp-controller="Home" asp-action="Post" asp-route-id="@post.Id">
+                        @post.Title
+
+
+
+                    </a>
+
+                </li>
+            }
+
+        </ul>*@
+    @foreach (var post in Model.Posts)
+    {
+
+        var image_path = $"/Image/{post.Image}";
+
+        <a class="post" asp-controller="Home" asp-action="Post" asp-route-id="@post.Id">
+
+            <img src="@image_path" />
+            <spam class="title">
+                @post.Title
+            </spam>
+        </a>
+    }
+<div>
+    @if(Model.PageNumber >1)
+    { <a asp-action="Index" asp-controller="Home" asp-route-category="(@Model.Catgory)" asp-route-pageNumber="@(Model.PageNumber - 1)">Previous Page</a>}   
+    @if(Model.NextPage)
+    {<a asp-action="Index" asp-controller="Home" asp-route-category="(@Model.Catgory)" asp-route-pageNumber="@(Model.PageNumber + 1)">Next Page</a> }
+    
+</div>
+
+</div>
