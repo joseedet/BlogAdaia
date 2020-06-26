@@ -41,7 +41,7 @@ namespace BlogAdaia.Controllers
                  Posts = string.IsNullOrEmpty(category) ? _repo.GetAllPosts(pageNumber) : _repo.GetAll(category)
 
              };*/
-            var vm = _repo.GetAllPosts(pageNumber);
+            var vm = _repo.GetAllPosts(pageNumber,category);
             return View(vm);
         }
 

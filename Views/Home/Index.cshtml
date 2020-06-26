@@ -35,6 +35,8 @@
             }
 
         </ul>*@
+    <partial name="_BlogPagination" model="Model" />
+
     @foreach (var post in Model.Posts)
     {
 
@@ -47,13 +49,9 @@
                 @post.Title
             </spam>
         </a>
-    }
-<div>
-    @if(Model.PageNumber >1)
-    { <a asp-action="Index" asp-controller="Home" asp-route-category="(@Model.Catgory)" asp-route-pageNumber="@(Model.PageNumber - 1)">Previous Page</a>}   
-    @if(Model.NextPage)
-    {<a asp-action="Index" asp-controller="Home" asp-route-category="(@Model.Catgory)" asp-route-pageNumber="@(Model.PageNumber + 1)">Next Page</a> }
-    
-</div>
+    }  
+
+    <partial name="_BlogPagination" model="Model" />
+
 
 </div>
