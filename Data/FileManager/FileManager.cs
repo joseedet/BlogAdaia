@@ -59,10 +59,10 @@ namespace BlogAdaia.Data.FileManager
             {
                 /*await image.CopyToAsync(filestream);*/
                     MagicImageProcessor.ProcessImage(image.OpenReadStream(), filestream,imageoptions());
-                }
+             }
 
                
-                return fileName;
+                return  fileName;
 
             }
             catch(Exception e)

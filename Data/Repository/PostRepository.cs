@@ -46,10 +46,10 @@ namespace MyBlog.Data.Repository
         }
         public new async Task<Post> GetById(int id)
         {
-            return _context.Posts
+            return await _context.Posts
                 .Include(p => p.MainComments)
                 .ThenInclude(mc => mc.SubComments)
-                .FirstOrDefault(p => p.Id == id);
+                .FirstOrDefaultAsync(p => p.Id == id);
 
         }
 

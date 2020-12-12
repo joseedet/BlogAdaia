@@ -13,7 +13,7 @@ namespace MyBlog.Data.Repository
         IQueryable<TEntity> GetAll();
         IQueryable<TEntity> GetAll(int pageNumber);
         Task AddAsync(TEntity entity);
-        Task UpdateAsync(TEntity entity);
+        void Update(TEntity entity);
         Task RenoveAsync(TEntity entity);
         
         

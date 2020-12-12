@@ -7,6 +7,7 @@ namespace BlogAdaia.Models.Comments
 {
     public class SubComment:Commnet
     {
+
         public int MainCommentId { get; set; }
     }
 }

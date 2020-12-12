@@ -84,7 +84,7 @@ namespace BlogAdaia.Controllers
                 });
 
 
-                await _repo.UpdateAsync(post);
+                 _repo.Update(post);
             }
             else
             {

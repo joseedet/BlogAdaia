@@ -1,12 +1,5 @@
-﻿using BlogAdaia.Models;
-using BlogAdaia.Models.Comments;
-
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using Microsoft.EntityFrameworkCore;
 using MyBlog.Data.Repository;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -55,11 +48,11 @@ namespace BlogAdaia.Data.Repository
         }
 
 
-        public async Task UpdateAsync(TEntity entity)
+        public void Update(TEntity entity)
         {
             _context.Set<TEntity>().Update(entity);
-            //await SaveAllChangesAsync();
         }
+
 
         public async Task AddAsync(TEntity entity)
         {
@@ -84,6 +77,8 @@ namespace BlogAdaia.Data.Repository
             
             return _context.Set<TEntity>().Skip(1).Take(pagesize);
         }
+
+       
     }
     
 }

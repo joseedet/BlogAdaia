@@ -90,7 +90,8 @@ namespace BlogAdaia.Controllers
             }
 
             if (post.Id > 0)
-               await _repo.UpdateAsync(post);
+                _repo.Update(post);
+                
             else
 
                await _repo.AddAsync(post);
